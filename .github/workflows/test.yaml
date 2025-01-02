@@ -1,0 +1,29 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 1.23.x
+      - uses: actions/checkout@v4
+      - name: Test
+        run: go test -race -cover ./...
+
+  analyze:
+    name: CodeQL
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: github/codeql-action/init@v2
+        with:
+          languages: go
+      - uses: github/codeql-action/analyze@v2
