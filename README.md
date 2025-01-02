@@ -1,5 +1,7 @@
 # Go JSON-RPC 2.0
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/macrat/go-jsonrpc2.svg)](https://pkg.go.dev/github.com/macrat/go-jsonrpc2)
+
 A super easy [JSON-RPC 2.0](https://www.jsonrpc.org/specification) client and server library for Go.
 
 ## Example
